@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="container">
-        <h1 class="mb-4">
+        <h1 class="mb-5">
             Products Archive
         </h1>
 
@@ -30,9 +30,7 @@
                             {{ $product->title }}
                         </td>
                         <td>
-                            <button class="btn btn-primary">
-                                Show
-                            </button>
+                            <a class="btn btn-primary" href="{{ route('products.show', $product->slug) }}">Show</a>
                         </td>
                         <td>
                             <button class="btn btn-primary">
