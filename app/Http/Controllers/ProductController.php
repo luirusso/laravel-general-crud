@@ -27,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -38,7 +38,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $new_product = new Product();
+
+        $data['slug'] = Str::slug($data['title'], '-');
+
+        $new_product->fill($data);
+
+        $new_product->save();
+
+        return redirect()->route('products.show', $new_product->slug);
     }
 
     /**

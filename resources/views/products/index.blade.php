@@ -6,6 +6,8 @@
             Products Archive
         </h1>
 
+        <a href="{{ route('products.create') }}" class="btn btn-primary mb-4">+ Add New Product</a>
+
         <table class="table">
             <thead>
                 <tr>
