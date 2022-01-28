@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+use App\Product;
 
 class ProductsSeeder extends Seeder
 {
@@ -17,6 +19,7 @@ class ProductsSeeder extends Seeder
             $new_product = new Product();
 
             $new_product->title = $product['title'];
+            $new_product->slug = Str::slug($new_product->title, '-');
             $new_product->description = $product['description'];
             $new_product->thumb = $product['thumb'];
             $new_product->price = $product['price'];
