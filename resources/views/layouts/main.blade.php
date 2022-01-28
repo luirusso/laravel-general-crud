@@ -12,7 +12,7 @@
 
     @include('partials.header')
 
-    <main class="flex-grow-1">
+    <main class="flex-grow-1 h-100">
         @yield('content')
     </main>
 
