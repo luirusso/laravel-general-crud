@@ -8,11 +8,11 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css' integrity='sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==' crossorigin='anonymous'/>
     <title>Russo Tech</title>
 </head>
-<body>
+<body class="d-flex flex-column vh-100 justify-content-center">
 
     @include('partials.header')
 
-    <main>
+    <main class="flex-grow-1">
         @yield('content')
     </main>
 

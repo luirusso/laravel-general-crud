@@ -15,7 +15,7 @@
                     <th>
                         Title
                     </th>
-                    <th colspan="3">
+                    <th colspan="2">
                         Action
                     </th>
                 </tr>
@@ -27,10 +27,7 @@
                             {{ $product->id }}
                         </td>
                         <td>
-                            {{ $product->title }}
-                        </td>
-                        <td>
-                            <a class="btn btn-primary" href="{{ route('products.show', $product->slug) }}">Show</a>
+                            <a href="{{ route('products.show', $product->slug) }}">{{ $product->title }}</a>
                         </td>
                         <td>
                             <button class="btn btn-primary">
