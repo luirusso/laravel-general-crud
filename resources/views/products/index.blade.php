@@ -8,6 +8,15 @@
 
         <a href="{{ route('products.create') }}" class="btn btn-primary mb-4">+ Add New Product</a>
 
+        {{-- CONFIRM DELETION MESSAGE --}}
+        @if (session('deleted'))
+            <div class="alert alert-success">
+                <strong>
+                    Article "{{ session('deleted') }}" successfully deleted.
+                </strong>
+            </div>
+        @endif
+
         <table class="table">
             <thead>
                 <tr>
@@ -35,9 +44,12 @@
                             <a class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Edit</a>
                         </td>
                         <td>
-                            <button class="btn btn-danger">
-                                Delete
-                            </button>
+                            <form action="{{ route('products.destroy', $product->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure?')">
+                            </form>
                         </td>
                     </tr>
                 @endforeach
