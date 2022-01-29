@@ -63,6 +63,7 @@ class ProductController extends Controller
         if($product) {
             return view('products.show', compact('product'));
         }
+        abort(404);
     }
 
     /**
@@ -73,7 +74,14 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        // OBTAIN PRODUCT TO EDIT
+        $product = Product::find($id);
+
+        // VALIDATION
+        if($product) {
+            return view('products.edit', compact('product'));
+        }
+        abort(404);
     }
 
     /**
@@ -85,7 +93,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        // GET ITEM THAT NEEDS TO BE UPDATED
+        $product = Product::find($id);
+
+        // UPDATE DB SLUG
+        $data['slug'] = Str::slug($data['title'], '-');
+        $product->update($data);
+
+        // REDIRECT
+        return redirect()->route('products.show', $product->slug);
     }
 
     /**
