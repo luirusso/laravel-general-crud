@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <section class="container h-100">
+    <section class="container h-100 mt-5">
         <h1 class="mb-5">
             Products Archive
         </h1>

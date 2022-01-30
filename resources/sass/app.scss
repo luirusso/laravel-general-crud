@@ -1,1 +1,31 @@
-//
+@import "./partials/vars";
+@import "./partials/header";
+@import "./partials/footer";
+@import "./partials/edit";
+@import "./partials/index";
+@import "./partials/show";
+@import "./partials/home";
+
+// GENERAL STYLES
+* {
+    color: $main-text-color;
+}
+
+html, body{
+    font-family: 'Chakra Petch', sans-serif;
+    background-color: $sub-headline-color;
+}
+
+main {
+    height: 100%;
+    flex: 1 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: $main-text-color;
+    transition: all 0.4s ease-in-out;
+    &:hover {
+        color: $body-content-color;
+    }
+}
